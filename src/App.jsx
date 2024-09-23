@@ -1,28 +1,38 @@
 import { useState } from 'react'
-import './App.css'
-import TopForm from './components/TopForm';
-import MidForm from './components/MidForm';
-import LastForm from './components/LastForm';
-import Button from './components/Button';
+import LeftSideBar from './components/LeftSideBar';
 
 function App() {
-  const [mode, setMode] = useState(true);
+  const [cv, setCV] = useState({username: '', email: '', phone: '' ,schools: [], companies: []});
 
-  const handleModeChange = () => {
-      setMode(!mode);
+  const handleCvChange = (e, key, index=null, field=null) => {
+    const value = e.target.value;
+
+    if(index !== null && field){
+      setCV((prevCv) => {
+        const updatedArray = [...prevCv[key]]; 
+        updatedArray[index] = {
+          ...updatedArray[index],
+          [field]: value
+        };
+        return{
+          ...prevCv,
+          [key]: updatedArray
+        }
+      })
+    }
+  }
+
+  const addItemsToArray = (item, key) => {
+    setCV((prevCv) => ({
+      ...prevCv,
+       [key]: [...prevCv[key] || [], item]
+    }))
   }
 
   return (
     <>
-      <h1>Cv resume</h1>
-      <TopForm mode={mode}/>
-      <span className='line'></span>
-      <MidForm mode={mode}/>
-      <span className='line'></span>
-      <LastForm mode={mode}/>
-      <span className='line'></span>
-
-      <Button mode={mode} func={handleModeChange} />
+      <h1>CV Resume Generator</h1>
+      <LeftSideBar cv={cv} handleCvChange={handleCvChange} addItemsToArray={addItemsToArray}/>
     </>
   )
 }
