@@ -4,3 +4,9 @@
     max-width: 300px;
     gap: 15px;
 }
+
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
