@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import LeftSideBar from './components/LeftSideBar';
+import RightSideBar from './components/RightSideBar';
 
 function App() {
   const [cv, setCV] = useState({username: '', email: '', phone: '' ,schools: [], companies: []});
@@ -19,6 +20,11 @@ function App() {
           [key]: updatedArray
         }
       })
+    } else {
+      setCV((prevCv) => ({
+        ...prevCv,
+        [key]: value
+      }))
     }
   }
 
@@ -34,13 +40,16 @@ function App() {
   }
 
   const importExample = () => {
-    setCV({username: 'Zack', email: 'Zack@mail.ru', phone: '+7(123)123 12 34' ,schools: [{school: 'university', title: 'uer interface', date: '12.06.2004'}], companies: [{company: 'companyyy', position: 'user gay', responsibilities:'idk', startDate:'26.04.2005', endDate:'26.04.2006'}]})
+    setCV({username: 'Zack', email: 'Zack@mail.ru', phone: '+7(123)123 12 34' ,schools: [{school: 'university', title: 'uer interface', date: '2004.06.12'}], companies: [{company: 'companyyy', position: 'user gay', responsibilities:'idk', startDate:'2005.04.26', endDate:'2006.04.26'}]})
   }
 
   return (
     <>
       <h1>CV Resume Generator</h1>
-      <LeftSideBar cv={cv} handleCvChange={handleCvChange} addItemsToArray={addItemsToArray} resetAll={resetAll} importExample={importExample}/>
+      <div className="cv-row">
+        <LeftSideBar cv={cv} handleCvChange={handleCvChange} addItemsToArray={addItemsToArray} resetAll={resetAll} importExample={importExample}/>
+        <RightSideBar cv={cv}/>
+      </div>
     </>
   )
 }
