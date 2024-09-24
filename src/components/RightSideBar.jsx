@@ -1,4 +1,4 @@
-
+import '../assets/RightSideBar.css'
 
 function RightSideBar({cv}){
     return (
@@ -11,15 +11,28 @@ function RightSideBar({cv}){
                 </div>
             </div>
             <div className="cv-main">
-                {cv.schools.map((item,index) => {
-                    return(
-                    <div key={index}>
-                        <p>{item.school}</p>
-                        <p>{item.title}</p>
-                        <p>{item.date}</p>
-                    </div>
-                    )
-                })}
+                <div className="cv-main__school">
+                    {cv.schools.map((item,index) => {
+                        return(
+                        <div key={index}>
+                            <p>{item.school}</p>
+                            <p>{item.title}</p>
+                            <p>{item.date}</p>
+                        </div>
+                        )
+                    })}
+                </div>
+                <div className="cv-main__company">
+                    {cv.companies.map((item,index) => {
+                        return(
+                        <div key={index}>
+                            <p>{item.school}</p>
+                            <p>{item.title}</p>
+                            <p>{item.date}</p>
+                        </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )

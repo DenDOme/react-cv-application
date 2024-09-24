@@ -40,7 +40,7 @@ function App() {
   }
 
   const importExample = () => {
-    setCV({username: 'Zack', email: 'Zack@mail.ru', phone: '+7(123)123 12 34' ,schools: [{school: 'university', title: 'uer interface', date: '2004.06.12'}], companies: [{company: 'companyyy', position: 'user gay', responsibilities:'idk', startDate:'2005.04.26', endDate:'2006.04.26'}]})
+    setCV({username: 'Zack', email: 'Zack@mail.ru', phone: '+7(123)123 12 34' ,schools: [{school: 'university', title: 'uer interface', date: '2004.06.12'}], companies: [{company: 'companyyy', position: 'user gay', responsibilities:'idk', startDate:'2005.06.26', endDate:'2006.06.26'}]})
   }
 
   return (

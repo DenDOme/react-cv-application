@@ -1,0 +1,22 @@
+.cv{
+    min-width: 900px;
+    background-color: #fff;
+    color: #000;
+}
+
+.cv-top{
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #18345f;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+    padding: 2px 0 20px;
+}
+
+.cv-top__row{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
